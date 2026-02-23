@@ -1,5 +1,5 @@
 global:
-  domain: view-studio.alice-platform.com
+  domain: view-studio.alicelaw.net
 frontend:
   replicas: 2
   image: view-studio/frontend:latest
