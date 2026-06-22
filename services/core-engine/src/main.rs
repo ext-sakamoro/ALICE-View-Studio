@@ -133,11 +133,7 @@ async fn handle_scene(
     let object_count = req.objects.len();
     let light_count = req.lights.len();
 
-    info!(
-        objects = object_count,
-        lights = light_count,
-        "scene upload"
-    );
+    info!(objects = object_count, lights = light_count, "scene upload");
 
     let scene_id = format!("scene-{:x}", fnv1a_timestamp());
 
@@ -221,8 +217,7 @@ async fn main() {
         .route("/api/v1/view/embed", post(handle_embed))
         .with_state(state);
 
-    let addr_str =
-        std::env::var("VIEW_ADDR").unwrap_or_else(|_| "0.0.0.0:8081".to_string());
+    let addr_str = std::env::var("VIEW_ADDR").unwrap_or_else(|_| "0.0.0.0:8081".to_string());
     let addr: SocketAddr = addr_str
         .parse()
         .expect("VIEW_ADDR must be a valid socket address");
